@@ -720,6 +720,83 @@
       .settle-copy-btn { width: 100%; padding: 11px 14px; }
       .submit-btn { font-size: 13.5px; }
     }
+
+    /* MAIN HOOK — 보조 카드 · 안내문 */
+    .deal-sub { font-size: 11.5px; line-height: 1.7; margin-top: 12px; color: rgba(255,255,255,0.8); }
+    .deal-box-alt {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      color: var(--text-dark);
+    }
+    .deal-box-alt .deal-label { color: var(--green); }
+    .deal-box-alt .deal-before { color: var(--text-light); }
+    .deal-box-alt .deal-arrow { color: var(--green-light); }
+    .deal-box-alt .deal-after { color: var(--text-dark); }
+    .deal-box-alt .deal-badge {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--green);
+    }
+    .deal-box-alt .deal-sub { color: var(--text-light); }
+    .deal-note-box {
+      border: 1px dashed var(--green-light);
+      border-radius: 12px;
+      background: var(--cream);
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .deal-note-box strong { color: var(--text-dark); }
+
+    /* ACCORDION */
+    .acc {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .acc-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.6;
+      cursor: pointer;
+      list-style: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .acc-head::-webkit-details-marker { display: none; }
+    .acc-head::marker { content: ''; }
+    .acc-head strong { color: var(--text-dark); }
+    .acc-head:active { background: var(--tag-bg); }
+    .acc-icon { font-size: 15px; flex-shrink: 0; }
+    .acc-label { flex: 1; min-width: 0; }
+    .acc-arrow {
+      flex-shrink: 0;
+      font-size: 12px;
+      color: var(--green);
+      transition: transform 0.2s;
+    }
+    .acc[open] .acc-arrow { transform: rotate(180deg); }
+    .acc[open] .acc-head { border-bottom: 1px solid var(--border); }
+    .acc-body {
+      padding: 14px 16px 16px;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .acc-body > ul:first-child,
+    .acc-body > .key-info-box:first-child { margin-top: 0; }
+
+    @media (max-width: 480px) {
+      .acc-head { font-size: 12.5px; padding: 13px 14px; }
+      .acc-body { padding: 13px 14px 15px; font-size: 12.5px; }
+      .deal-note-box { font-size: 11.5px; padding: 13px 14px; }
+    }
   </style>
 </head>
 <body>
@@ -817,7 +894,7 @@
 
   <!-- 메인 소구점 -->
   <div class="deal-box">
-    <div class="deal-label">Main Hook · 필수 소구</div>
+    <div class="deal-label">Main Hook 1 · 캠페인 상품 할인</div>
     <div class="deal-price">
       <span class="deal-before">40,000원</span>
       <span class="deal-arrow">→</span>
@@ -825,21 +902,41 @@
     </div>
     <div class="deal-badges">
       <span class="deal-badge">45% 할인</span>
-      <span class="deal-badge">18,100원 절약</span>
       <span class="deal-badge">해당몰 특가</span>
+    </div>
+    <div class="deal-sub">제공 제품 — [율무·펩타이드] 스킨 리밸런싱 순율 앰플</div>
+  </div>
+
+  <div class="deal-box deal-box-alt">
+    <div class="deal-label">Main Hook 2 · 추석 이벤트 최대 혜택</div>
+    <div class="deal-price">
+      <span class="deal-before">120,000원</span>
+      <span class="deal-arrow">→</span>
+      <span class="deal-after">39,700원</span>
+    </div>
+    <div class="deal-badges">
+      <span class="deal-badge">최대 70% 상당 할인</span>
+      <span class="deal-badge">8만원 상당</span>
       <span class="deal-badge">추석 이벤트</span>
     </div>
-    <div class="deal-note">
-      <strong>최대 할인율 · 해당몰 특가 · 추석 이벤트</strong> 세 가지를 영상 내에서 최소 1회 이상 소구해 주세요.
-      가격은 <strong>정상가 → 할인가</strong> 비교 형태로 보여주고, 혜택을 먼저 말한 뒤 검색을 안내하면 자발적인 검색 전환율이 높아집니다.
-    </div>
+    <div class="deal-sub">추석 이벤트 전체 기준 최대 할인율 — 검색 동기 부여용</div>
+  </div>
+
+  <div class="deal-note-box">
+    <strong>두 혜택을 함께 소구해 주세요.</strong>
+    캠페인 상품 할인율(45%)과 추석 이벤트 최대 할인율(최대 70% 상당)을 영상 내에서 최소 1회 이상 언급하고,
+    가격은 <strong>정상가 → 할인가</strong> 비교 형태로 보여주세요.
+    혜택을 먼저 말한 뒤 검색을 안내하면 자발적인 검색 전환율이 높아집니다.
   </div>
 
   <div class="must-list">
-    <div class="must-item">
-      <div class="must-icon">🎬</div>
-      <div style="width:100%">
-        <strong>[영상]</strong>
+    <details class="acc" open>
+      <summary class="acc-head">
+        <span class="acc-icon">🎬</span>
+        <span class="acc-label"><strong>[영상]</strong> <strong style="color:var(--green)">(필수)</strong></span>
+        <span class="acc-arrow">▾</span>
+      </summary>
+      <div class="acc-body">
         <ul style="margin-top:8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
           <li>Before/After 형식 <strong style="color:var(--green)">(필수)</strong></li>
           <li>모공·피부결 클로즈업 컷 포함 <strong style="color:var(--green)">(필수)</strong></li>
@@ -876,11 +973,14 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="must-item">
-      <div class="must-icon">🔍</div>
-      <div style="width:100%">
-        <strong>[네이버 스마트스토어 검색 유도]</strong> 영상·캡션 내 안내 <strong style="color:var(--green)">(택 1)</strong>
+    </details>
+    <details class="acc">
+      <summary class="acc-head">
+        <span class="acc-icon">🔍</span>
+        <span class="acc-label"><strong>[네이버 스마트스토어 검색 유도]</strong> 영상·캡션 내 안내 <strong style="color:var(--green)">(택 1)</strong></span>
+        <span class="acc-arrow">▾</span>
+      </summary>
+      <div class="acc-body">
         <div class="key-info-box">
           <div>
             <div class="key-info-group-title">타겟 키워드 — 탭하여 복사</div>
@@ -897,11 +997,14 @@
         </div>
         <div class="guide-sub">두 키워드 중 <strong>최소 1개</strong>는 영상 자막·음성과 캡션에 그대로 노출해 주세요.<br>아래 <strong>댓글 시 DM 발송</strong>과 둘 중 하나만 진행하셔도 됩니다.</div>
       </div>
-    </div>
-    <div class="must-item">
-      <div class="must-icon">💬</div>
-      <div style="width:100%">
-        <strong>[댓글 시 DM 발송]</strong> 자동 DM 설정 <strong style="color:var(--green)">(택 1)</strong>
+    </details>
+    <details class="acc">
+      <summary class="acc-head">
+        <span class="acc-icon">💬</span>
+        <span class="acc-label"><strong>[댓글 시 DM 발송]</strong> 자동 DM 설정 <strong style="color:var(--green)">(택 1)</strong></span>
+        <span class="acc-arrow">▾</span>
+      </summary>
+      <div class="acc-body">
         <ul style="margin-top:8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
           <li>영상 마지막과 캡션에 <strong>댓글 유도 CTA</strong>를 넣어주세요</li>
           <li>지정 키워드 댓글이 달리면 <strong>구매 페이지 링크가 DM으로 자동 발송</strong>되도록 설정해 주세요</li>
@@ -921,11 +1024,14 @@
         </div>
         <div class="guide-sub">위 <strong>네이버 스마트스토어 검색 유도</strong>와 둘 중 하나만 진행하셔도 됩니다.</div>
       </div>
-    </div>
-    <div class="must-item">
-      <div class="must-icon">✍️</div>
-      <div style="width:100%">
-        <strong>[캡션]</strong> 아래 3가지 포함 <strong style="color:var(--green)">(필수)</strong>
+    </details>
+    <details class="acc">
+      <summary class="acc-head">
+        <span class="acc-icon">✍️</span>
+        <span class="acc-label"><strong>[캡션]</strong> 아래 3가지 포함 <strong style="color:var(--green)">(필수)</strong></span>
+        <span class="acc-arrow">▾</span>
+      </summary>
+      <div class="acc-body">
         <ul style="margin-top:8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
           <li>타겟 키워드 <strong>잇퓨모공앰플 · 율무모공앰플</strong> 각 1회 이상</li>
           <li>할인율과 금액<br>(40,000원 → 21,900원 / 45% 할인)</li>
@@ -933,15 +1039,18 @@
         </ul>
         <div class="guide-sub">핵심정보·핵심성분 소구는 <span style="color:var(--green);font-weight:700">추천</span> 사항입니다.</div>
       </div>
-    </div>
-    <div class="must-item">
-      <div class="must-icon">🔗</div>
-      <div>
-        <strong>[공동작업자]</strong> 설정 필수<br>
+    </details>
+    <details class="acc">
+      <summary class="acc-head">
+        <span class="acc-icon">🔗</span>
+        <span class="acc-label"><strong>[공동작업자]</strong> 설정 필수</span>
+        <span class="acc-arrow">▾</span>
+      </summary>
+      <div class="acc-body">
         <span class="collab-handle" style="display:inline-flex;align-items:center;gap:5px;margin-top:6px;font-size:13px;color:var(--green);font-weight:700;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;padding:4px 0;">@itfu_official ⎘</span><br>
         <span class="collab-handle" style="display:inline-flex;align-items:center;gap:5px;margin-top:4px;font-size:13px;color:var(--green);font-weight:700;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;padding:4px 0;">@itfu_global ⎘</span>
       </div>
-    </div>
+    </details>
   </div>
 
   <div class="divider"></div>
