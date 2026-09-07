@@ -517,6 +517,52 @@
       .product-name { font-size: 13.5px; }
       .apply-btn { font-size: 13.5px; min-height: 52px; }
     }
+
+    /* MAIN HOOK */
+    .deal-box {
+      background: linear-gradient(160deg, var(--green) 0%, #4A8FB5 100%);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .deal-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--green-pale);
+    }
+    .deal-price {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .deal-before { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: line-through; }
+    .deal-arrow { font-size: 13px; color: var(--green-pale); }
+    .deal-after {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .deal-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .deal-badge {
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 20px;
+      padding: 4px 10px;
+    }
+    .deal-note { font-size: 12px; line-height: 1.75; color: rgba(255,255,255,0.88); margin-top: 14px; }
+    .deal-note strong { color: #fff; }
+    .guide-sub { font-size: 12px; color: var(--text-mid); line-height: 1.7; margin-top: 10px; }
+    .guide-sub strong { color: var(--text-dark); }
   </style>
 </head>
 <body>
@@ -527,7 +573,7 @@
   <div class="banner-overlay">
     <div class="header-eyebrow">Influencer Guideline</div>
     <div class="header-title">잇퓨 가이드라인</div>
-    <div class="header-sub">it:fu × Creator Campaign</div>
+    <div class="header-sub">Soonyul Ampoule × Chuseok Event</div>
   </div>
 </div>
 
@@ -565,8 +611,16 @@
   <div class="info-box">
     <div class="info-box-title">Schedule & Details</div>
     <div class="info-row">
+      <div class="info-key">업로드</div>
+      <div class="info-val"><strong>9월 17일(목) ~ 19일(토)</strong> 내외</div>
+    </div>
+    <div class="info-row">
       <div class="info-key">형식</div>
       <div class="info-val">릴스 (Reels)</div>
+    </div>
+    <div class="info-row">
+      <div class="info-key">미션</div>
+      <div class="info-val">릴스 업로드 + <strong>댓글 시 DM 발송</strong> 설정 + <strong>네이버 검색 유도</strong></div>
     </div>
     <div class="info-row">
       <div class="info-key">공동작업자</div>
@@ -581,10 +635,10 @@
       <div class="info-val">3개월</div>
     </div>
   </div>
-  <div class="info-warning">⚠️ 일정 미준수 시 고료 지급이 불가합니다.</div>
+  <div class="info-warning">⚠️ 업로드 기한(9/17~9/19) 미준수 시 고료 지급이 불가합니다.</div>
 
   <!-- 제공 제품 -->
-  <div style="font-size:12px;font-weight:700;color:var(--text-mid);margin-bottom:10px;letter-spacing:0.05em;">제공 제품</div>
+  <div style="font-size:12px;font-weight:700;color:var(--text-mid);margin-bottom:10px;letter-spacing:0.05em;">제공 제품 (순율 라인)</div>
   <div class="product-list">
     <div class="product-box">
       <div class="product-name">[율무·펩타이드] 스킨 리밸런싱 순율 앰플</div>
@@ -602,7 +656,27 @@
   <div class="section-label">Content Guide</div>
   <div class="section-title">제작 가이드</div>
 
-  <div style="font-size:12px;font-weight:700;color:var(--text-mid);margin-bottom:12px;">✔ 영상 및 캡션 필수 포함</div>
+  <div style="font-size:12px;font-weight:700;color:var(--text-mid);margin-bottom:12px;">✔ 영상 · 캡션 · 댓글 DM · 검색 유도 필수 포함</div>
+
+  <!-- 메인 소구점 -->
+  <div class="deal-box">
+    <div class="deal-label">Main Hook · 필수 소구</div>
+    <div class="deal-price">
+      <span class="deal-before">120,000원</span>
+      <span class="deal-arrow">→</span>
+      <span class="deal-after">39,700원</span>
+    </div>
+    <div class="deal-badges">
+      <span class="deal-badge">최대 70% 상당 할인</span>
+      <span class="deal-badge">8만원 상당 혜택</span>
+      <span class="deal-badge">해당몰 특가</span>
+      <span class="deal-badge">추석 이벤트</span>
+    </div>
+    <div class="deal-note">
+      <strong>최대 할인율 · 해당몰 특가 · 추석 이벤트</strong> 세 가지를 영상 내에서 최소 1회 이상 소구해 주세요.
+      가격은 <strong>정상가 → 할인가</strong> 비교 형태로 보여주고, 혜택을 먼저 말한 뒤 검색을 안내하면 자발적인 검색 전환율이 높아집니다.
+    </div>
+  </div>
 
   <div class="must-list">
     <div class="must-item">
@@ -611,11 +685,21 @@
         <strong>[영상]</strong>
         <ul style="margin-top:8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
           <li>Before/After 형식 <strong style="color:var(--green)">(필수)</strong></li>
+          <li>모공·피부결 클로즈업 컷 포함 <strong style="color:var(--green)">(필수)</strong></li>
+          <li>최대 할인율 · 해당몰 특가 · 추석 이벤트 소구 <strong style="color:var(--green)">(필수)</strong></li>
           <li>핵심정보 및 핵심성분 영상 내 소구</li>
         </ul>
         <div class="key-info-box">
           <div>
             <div class="key-info-group-title">핵심정보</div>
+            <div class="key-info-item">
+              <div class="key-info-name">순율앰플 <span style="font-size:10px;font-weight:700;color:#fff;background:var(--green);border-radius:10px;padding:2px 7px;margin-left:4px;vertical-align:1px;">메인</span></div>
+              <div class="key-info-desc">스테디셀러 순율크림 라인의 앰플로, 율무포어 성분이 <strong>모공과 피부결</strong>을 집중 케어</div>
+              <div class="key-info-tags">
+                <span class="key-info-tag">모공 케어</span>
+                <span class="key-info-tag">피부결 정돈</span>
+              </div>
+            </div>
             <div class="key-info-item">
               <div class="key-info-name">순율크림</div>
               <div class="key-info-desc">누적 60만개 판매, 좁쌀·요철 잡는 율무크림으로 유명</div>
@@ -624,10 +708,6 @@
                 <span class="key-info-tag">네이버 1위</span>
                 <span class="key-info-tag">지그재그 1위</span>
               </div>
-            </div>
-            <div class="key-info-item">
-              <div class="key-info-name">순율앰플</div>
-              <div class="key-info-desc">스테디셀러 순율크림 라인으로, 모공과 피부결 집중 케어</div>
             </div>
           </div>
           <div>
@@ -659,8 +739,61 @@
       </div>
     </div>
     <div class="must-item">
+      <div class="must-icon">🔍</div>
+      <div style="width:100%">
+        <strong>[네이버 검색 유도]</strong> 영상·캡션 내 안내 <strong style="color:var(--green)">(필수)</strong>
+        <div class="key-info-box">
+          <div>
+            <div class="key-info-group-title">타겟 키워드 — 탭하여 복사</div>
+            <div class="hashtag-wrap" style="margin-bottom:0">
+              <div class="hashtag req">잇퓨모공앰플</div>
+              <div class="hashtag req">율무모공앰플</div>
+            </div>
+          </div>
+          <div>
+            <div class="key-info-group-title">안내 문구 예시</div>
+            <div class="key-info-desc">“12만원대 앰플이 3만원대예요 — <strong>네이버에 ‘잇퓨모공앰플’</strong> 검색하면 추석 이벤트 특가로 만나보실 수 있어요”</div>
+            <div class="key-info-desc" style="margin-top:8px">“<strong>‘율무모공앰플’</strong> 검색해서 이벤트 확인해보세요, 지금이 제일 저렴해요”</div>
+          </div>
+        </div>
+        <div class="guide-sub">두 키워드 중 <strong>최소 1개</strong>는 영상 자막·음성과 캡션에 그대로 노출해 주세요.</div>
+      </div>
+    </div>
+    <div class="must-item">
+      <div class="must-icon">💬</div>
+      <div style="width:100%">
+        <strong>[댓글 시 DM 발송]</strong> 자동 DM 설정 <strong style="color:var(--green)">(필수)</strong>
+        <ul style="margin-top:8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
+          <li>영상 마지막과 캡션에 <strong>댓글 유도 CTA</strong>를 넣어주세요</li>
+          <li>지정 키워드 댓글이 달리면 <strong>구매 페이지 링크가 DM으로 자동 발송</strong>되도록 설정해 주세요</li>
+          <li>고정 댓글(첫 댓글)에도 동일한 안내를 남겨주세요</li>
+        </ul>
+        <div class="key-info-box">
+          <div>
+            <div class="key-info-group-title">댓글 키워드 — 탭하여 복사</div>
+            <div class="hashtag-wrap" style="margin-bottom:0">
+              <div class="hashtag req">순율</div>
+            </div>
+          </div>
+          <div>
+            <div class="key-info-group-title">CTA 문구 예시</div>
+            <div class="key-info-desc">“댓글에 <strong>‘순율’</strong> 남겨주시면 이벤트 링크를 DM으로 바로 보내드려요”</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="must-item">
       <div class="must-icon">✍️</div>
-      <div><strong>[캡션]</strong> 핵심정보 및 핵심성분 영상 내 소구 <span style="color:var(--green);font-weight:700">(추천)</span></div>
+      <div style="width:100%">
+        <strong>[캡션]</strong> 아래 4가지 포함 <strong style="color:var(--green)">(필수)</strong>
+        <ul style="margin-top:8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
+          <li>타겟 키워드 <strong>잇퓨모공앰플 · 율무모공앰플</strong> 각 1회 이상</li>
+          <li>최대 할인율과 금액 (120,000원 → 39,700원 / 8만원 상당)</li>
+          <li>네이버 검색 안내 문구</li>
+          <li>댓글 유도 CTA (“댓글에 ‘순율’ 남기면 DM 발송”)</li>
+        </ul>
+        <div class="guide-sub">핵심정보·핵심성분 소구는 <span style="color:var(--green);font-weight:700">추천</span> 사항입니다.</div>
+      </div>
     </div>
     <div class="must-item">
       <div class="must-icon">🔗</div>
@@ -679,6 +812,8 @@
     <div class="rec-item">제품 특징과 실제 사용 후 느낌을 바탕으로 자유롭게 표현해주세요.</div>
     <div class="rec-item">BGM은 저작권 이슈가 없는 음원을 사용해주세요.</div>
     <div class="rec-item">과한 보정·상세페이지 캡처·편집 프로그램 워터마크 노출은 지양해주세요.</div>
+    <div class="rec-item">가격·할인율은 브랜드 공지 기준(120,000원 → 39,700원)으로만 표기해주세요.</div>
+    <div class="rec-item">업로드한 게시물은 활용기간(3개월) 동안 삭제하지 말아주세요.</div>
   </div>
 
   <div class="divider"></div>
@@ -687,17 +822,20 @@
   <div class="hashtag-section">
     <div class="hashtag-label">해시태그 <span class="required">필수</span></div>
     <div class="hashtag-wrap">
+      <div class="hashtag req">#잇퓨모공앰플</div>
+      <div class="hashtag req">#율무모공앰플</div>
       <div class="hashtag req">#잇퓨</div>
       <div class="hashtag req">#잇퓨앰플</div>
       <div class="hashtag req">#모공앰플</div>
-      <div class="hashtag req">#수딩앰플</div>
-      <div class="hashtag req">#히알루론산앰플</div>
       <div class="hashtag req">#율무앰플</div>
+      <div class="hashtag req">#순율앰플</div>
+      <div class="hashtag req">#추석이벤트</div>
     </div>
   </div>
 
   <div class="warning-box">
-    ⚠️ <strong>업로드 기한을 반드시 준수해주세요.</strong><br><br>
+    ⚠️ <strong>업로드 기한: 9월 17일(목) ~ 19일(토)</strong><br>
+    기한 미준수 시 고료 지급이 불가합니다.<br><br>
     공동작업자 설정 및 콘텐츠 2차 활용에 동의하는 것으로 간주됩니다.
   </div>
 </div>
