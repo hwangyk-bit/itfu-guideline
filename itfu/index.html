@@ -768,6 +768,10 @@
   <div class="info-box">
     <div class="info-box-title">Schedule & Details</div>
     <div class="info-row">
+      <div class="info-key">고료</div>
+      <div class="info-val"><strong>5만원</strong></div>
+    </div>
+    <div class="info-row">
       <div class="info-key">업로드</div>
       <div class="info-val"><strong>9월 17일(목) ~ 19일(토)</strong></div>
     </div>
@@ -1235,6 +1239,9 @@
   // 구글시트 연동 — 배포한 Apps Script 웹 앱 URL을 아래에 넣으면 제출이 활성화됩니다.
   const GAS_WEB_APP_URL = '';
 
+  // 페이지별 고료 — 구글시트에서 고료별 탭으로 분리 저장할 때 사용
+  const APP_PRICE = '5만원';
+
   // 우편번호(zipcode)·휴대폰(phone)은 앞자리 0 보존을 위해 항상 문자열로 취급
   function submitApplication(e) {
     e.preventDefault();
@@ -1243,6 +1250,8 @@
     const form = document.getElementById('applicationForm');
     const data = {
       campaign: '잇퓨 순율앰플 추석 이벤트',
+      price: APP_PRICE,
+      page: location.pathname.replace(/\/+$/, '') || '/',
       name: form.name.value.trim(),
       instagram: normalizeInstagramLink(form.instagram.value),
       phone: String(form.phone.value.trim()),
