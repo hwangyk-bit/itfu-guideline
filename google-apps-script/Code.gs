@@ -5,6 +5,10 @@
  * https://docs.google.com/spreadsheets/d/16dX_zSESxgckgTNBdN26VfjqZYuAX5FCVS5kC1QNkfY/edit
  * 탭 이름: 시트1  (없으면 자동 생성)
  *
+ * [현재 배포된 웹 앱 URL]
+ * https://script.google.com/macros/s/AKfycbzQpZwQ70ZS2JCFLGI7YKvR3-tayM_si1mxYAC_h6mWnnGeWG8fV3R9FCDSP6IpmdfQ/exec
+ * (2026-09-07 연동 완료 — 3개 페이지 모두 이 URL로 전송)
+ *
  * [배포 방법]
  * 1. 위 구글시트를 엽니다.
  * 2. 상단 메뉴 "확장 프로그램 > Apps Script" 클릭
