@@ -819,13 +819,13 @@
   <div class="deal-box">
     <div class="deal-label">Main Hook · 필수 소구</div>
     <div class="deal-price">
-      <span class="deal-before">120,000원</span>
+      <span class="deal-before">40,000원</span>
       <span class="deal-arrow">→</span>
-      <span class="deal-after">39,700원</span>
+      <span class="deal-after">21,900원</span>
     </div>
     <div class="deal-badges">
-      <span class="deal-badge">최대 70% 상당 할인</span>
-      <span class="deal-badge">8만원 상당 혜택</span>
+      <span class="deal-badge">45% 할인</span>
+      <span class="deal-badge">18,100원 절약</span>
       <span class="deal-badge">해당몰 특가</span>
       <span class="deal-badge">추석 이벤트</span>
     </div>
@@ -891,7 +891,7 @@
           </div>
           <div>
             <div class="key-info-group-title">안내 문구 예시</div>
-            <div class="key-info-desc">“12만원대 앰플이 3만원대예요 — <strong>네이버 스마트스토어에 ‘잇퓨모공앰플’</strong> 검색하면 추석 이벤트 특가로 만나보실 수 있어요”</div>
+            <div class="key-info-desc">“4만원대 앰플이 2만원대예요 — <strong>네이버 스마트스토어에 ‘잇퓨모공앰플’</strong> 검색하면 추석 이벤트 특가로 만나보실 수 있어요”</div>
             <div class="key-info-desc" style="margin-top:8px">“<strong>‘율무모공앰플’</strong> 검색해서 이벤트 확인해보세요, 지금이 제일 저렴해요”</div>
           </div>
         </div>
@@ -928,7 +928,7 @@
         <strong>[캡션]</strong> 아래 3가지 포함 <strong style="color:var(--green)">(필수)</strong>
         <ul style="margin-top:8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
           <li>타겟 키워드 <strong>잇퓨모공앰플 · 율무모공앰플</strong> 각 1회 이상</li>
-          <li>최대 할인율과 금액<br>(120,000원 → 39,700원 / 8만원 상당)</li>
+          <li>할인율과 금액<br>(40,000원 → 21,900원 / 45% 할인)</li>
           <li>선택한 미션에 맞는 안내 문구<br>— 스마트스토어 검색 안내 <strong>혹은</strong> 댓글 유도 CTA</li>
         </ul>
         <div class="guide-sub">핵심정보·핵심성분 소구는 <span style="color:var(--green);font-weight:700">추천</span> 사항입니다.</div>
@@ -951,7 +951,7 @@
     <div class="rec-item">제품 특징과 실제 사용 후 느낌을 바탕으로 자유롭게 표현해주세요.</div>
     <div class="rec-item">BGM은 저작권 이슈가 없는 음원을 사용해주세요.</div>
     <div class="rec-item">과한 보정·상세페이지 캡처·편집 프로그램 워터마크 노출은 지양해주세요.</div>
-    <div class="rec-item">가격·할인율은 브랜드 공지 기준(120,000원 → 39,700원)으로만 표기해주세요.</div>
+    <div class="rec-item">가격·할인율은 브랜드 공지 기준(40,000원 → 21,900원)으로만 표기해주세요.</div>
     <div class="rec-item">업로드한 게시물은 활용기간(3개월) 동안 삭제하지 말아주세요.</div>
   </div>
 
@@ -1239,7 +1239,8 @@
   // 구글시트 연동 — 배포한 Apps Script 웹 앱 URL을 아래에 넣으면 제출이 활성화됩니다.
   const GAS_WEB_APP_URL = '';
 
-  // 페이지별 고료 — 구글시트에서 고료별 탭으로 분리 저장할 때 사용
+  // 페이지별 등급·고료 — 구글시트 '시트1'의 등급/고료 컬럼으로 기록됨
+  const APP_TIER = 'B';
   const APP_PRICE = '10만원';
 
   // 우편번호(zipcode)·휴대폰(phone)은 앞자리 0 보존을 위해 항상 문자열로 취급
@@ -1250,6 +1251,7 @@
     const form = document.getElementById('applicationForm');
     const data = {
       campaign: '잇퓨 순율앰플 추석 이벤트',
+      tier: APP_TIER,
       price: APP_PRICE,
       page: location.pathname.replace(/\/+$/, '') || '/',
       name: form.name.value.trim(),
