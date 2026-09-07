@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ko" class="gated">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>it:fu — 캠페인 허브</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@300;400&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #5BA3C9;
+      --green-light: #7BBCD8;
+      --green-pale: #B8DCF0;
+      --cream: #F5FAFD;
+      --warm-white: #EEF6FB;
+      --text-dark: #1A2A35;
+      --text-mid: #3D6B85;
+      --text-light: #6899B0;
+      --border: #C5E0EF;
+      --tag-bg: #DFF0F9;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      min-height: 100vh;
+    }
+
+    /* BANNER */
+    .banner-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .banner-wrap img {
+      width: 100%;
+      display: block;
+    }
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
+      padding: 0 36px;
+    }
+    .header-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      font-weight: 300;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .header-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      color: #ffffff;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 480px) {
+      .header-title { font-size: 18px; }
+      .banner-overlay { padding: 0 24px; }
+    }
+
+    /* INTRO */
+    .intro {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 44px 28px 8px;
+      padding-left: max(28px, env(safe-area-inset-left, 28px));
+      padding-right: max(28px, env(safe-area-inset-right, 28px));
+    }
+    .intro-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .intro-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--green);
+    }
+    .intro-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .intro-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    /* CARD LIST */
+    .hub-list {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 24px 28px 8px;
+      padding-left: max(28px, env(safe-area-inset-left, 28px));
+      padding-right: max(28px, env(safe-area-inset-right, 28px));
+      display: grid;
+      gap: 18px;
+    }
+    .hub-card {
+      display: block;
+      text-decoration: none;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 2px 14px rgba(91, 163, 201, 0.08);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hub-card:active { transform: scale(0.985); }
+    .hub-card-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+      background: var(--warm-white);
+    }
+    .hub-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hub-card-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(26,42,53,0) 40%, rgba(26,42,53,0.55) 100%);
+    }
+    .hub-card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9.5px;
+      letter-spacing: 0.18em;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: rgba(26, 42, 53, 0.42);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 5px 12px;
+    }
+    .hub-card-status {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 5px 11px;
+    }
+    .hub-card-status.live { background: var(--green); }
+    .hub-card-status.soon { background: rgba(26, 42, 53, 0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+    .hub-card-body {
+      padding: 18px 20px 20px;
+    }
+    .hub-card-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    .hub-card-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .hub-card-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .hub-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .hub-card-tag {
+      font-size: 11px;
+      background: var(--tag-bg);
+      color: var(--green);
+      border-radius: 20px;
+      padding: 4px 11px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+    .hub-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.02em;
+    }
+    .hub-card.disabled { pointer-events: none; opacity: 0.78; }
+    .hub-card.disabled .hub-card-cta { color: var(--text-light); }
+
+    /* FOOTER */
+    .footer {
+      background: var(--green);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      margin-top: 40px;
+      padding: 36px 32px;
+      padding-bottom: max(36px, env(safe-area-inset-bottom, 36px));
+      font-size: 11.5px;
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+    }
+    .footer strong { color: rgba(255,255,255,0.85); }
+
+    @media (max-width: 480px) {
+      .intro { padding: 32px 20px 4px; }
+      .intro-title { font-size: 20px; }
+      .intro-desc { font-size: 13px; }
+      .hub-list { padding: 20px 20px 4px; gap: 16px; }
+      .hub-card-title { font-size: 17px; }
+      .hub-card-body { padding: 16px 18px 18px; }
+      .footer { padding: 28px 20px; font-size: 11px; }
+    }
+
+    @media (max-width: 360px) {
+      .intro { padding: 26px 14px 4px; }
+      .intro-title { font-size: 18px; }
+      .hub-list { padding: 16px 14px 4px; }
+      .hub-card-title { font-size: 16px; }
+    }
+
+    /* PASSWORD GATE */
+    html.gated, html.gated body { overflow: hidden; height: 100%; }
+    .gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 24px;
+    }
+    html:not(.gated) .gate { display: none; }
+    .gate-box {
+      width: 100%;
+      max-width: 340px;
+      text-align: center;
+    }
+    .gate-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+    }
+    .gate-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 18px;
+    }
+    .gate-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-top: 10px;
+    }
+    .gate-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-top: 12px;
+    }
+    .gate-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .gate-input {
+      width: 100%;
+      padding: 15px 16px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 16px;
+      text-align: center;
+      letter-spacing: 0.35em;
+      color: var(--text-dark);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .gate-input::placeholder { letter-spacing: 0.3em; color: var(--green-pale); }
+    .gate-input:focus { border-color: var(--green); }
+    .gate-btn {
+      padding: 15px 16px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #fff;
+      background: var(--green);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .gate-btn:active { opacity: 0.75; }
+    .gate-error {
+      min-height: 18px;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #C2565B;
+    }
+    .gate-note {
+      margin-top: 28px;
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+  </style>
+  <script>
+    (function () {
+      try {
+        if (sessionStorage.getItem('itfu-hub-unlocked') === '1') {
+          document.documentElement.classList.remove('gated');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+<!-- PASSWORD GATE -->
+<div class="gate" id="gate">
+  <div class="gate-box">
+    <div class="gate-mark">it:fu</div>
+    <div class="gate-eyebrow">Protected</div>
+    <div class="gate-title">잇퓨 캠페인 허브</div>
+    <p class="gate-desc">담당자에게 전달받은 비밀번호를 입력해 주세요.</p>
+    <form class="gate-form" id="gateForm" autocomplete="off">
+      <input class="gate-input" id="gateInput" type="password" inputmode="numeric" placeholder="••••" aria-label="비밀번호" autocomplete="off">
+      <button class="gate-btn" type="submit">확인</button>
+    </form>
+    <div class="gate-error" id="gateError" role="alert"></div>
+    <div class="gate-note">
+      본 허브는 선별된 크리에이터에게만 제공되는 자료입니다.
+      <noscript><br>확인을 위해 브라우저의 자바스크립트를 허용해 주세요.</noscript>
+    </div>
+  </div>
+</div>
+
+
+<!-- BANNER -->
+<div class="banner-wrap">
+  <img src="image/배너.PNG" alt="it:fu 캠페인 허브">
+  <div class="banner-overlay">
+    <div class="header-eyebrow">Campaign Hub</div>
+    <div class="header-title">잇퓨 캠페인 허브</div>
+    <div class="header-sub">it:fu × Creator Campaign</div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro">
+  <div class="intro-label">Guidelines</div>
+  <div class="intro-title">진행 중인 캠페인 가이드라인</div>
+  <p class="intro-desc">
+    참여하시는 캠페인의 가이드라인을 선택해 확인해 주세요. 각 가이드에는 제작 가이드, 필수 해시태그, 제출 서류 등 캠페인별 안내가 담겨 있습니다.
+  </p>
+</div>
+
+<!-- CARD LIST -->
+<div class="hub-list">
+
+  <!-- 1. 잇퓨 앰플/순율크림 가이드 -->
+  <a href="itfu/" class="hub-card">
+    <div class="hub-card-thumb">
+      <span class="hub-card-badge">Campaign 01</span>
+      <span class="hub-card-status live">진행중</span>
+      <img src="itfu/image/제품.PNG" alt="잇퓨 제품">
+    </div>
+    <div class="hub-card-body">
+      <div class="hub-card-eyebrow">Reels Campaign</div>
+      <div class="hub-card-title">잇퓨 가이드라인</div>
+      <p class="hub-card-desc">
+        율무 앰플·순율크림 중심의 릴스 캠페인 가이드라인입니다. Before/After 콘텐츠와 핵심 성분 소구 가이드를 확인하세요.
+      </p>
+      <div class="hub-card-tags">
+        <span class="hub-card-tag">릴스</span>
+        <span class="hub-card-tag">순율크림</span>
+        <span class="hub-card-tag">순율앰플</span>
+      </div>
+      <span class="hub-card-cta">가이드 보기 →</span>
+    </div>
+  </a>
+
+  <!-- 2. 순율크림 + 클렌징오일 가이드 -->
+  <a href="cleansing-oil/" class="hub-card">
+    <div class="hub-card-thumb">
+      <span class="hub-card-badge">Campaign 02</span>
+      <span class="hub-card-status live">진행중</span>
+      <img src="cleansing-oil/image/제품.PNG" alt="순율크림 + 클렌징오일">
+    </div>
+    <div class="hub-card-body">
+      <div class="hub-card-eyebrow">New Campaign</div>
+      <div class="hub-card-title">순율크림 + 클렌징오일</div>
+      <p class="hub-card-desc">
+        리페어 테라피 순율 크림과 딥 포어 그레인 클렌징 오일을 함께 소개하는 캠페인 가이드라인입니다. 클렌징 루틴과 핵심 성분 가이드를 확인하세요.
+      </p>
+      <div class="hub-card-tags">
+        <span class="hub-card-tag">순율크림</span>
+        <span class="hub-card-tag">클렌징오일</span>
+      </div>
+      <span class="hub-card-cta">가이드 보기 →</span>
+    </div>
+  </a>
+
+  <!-- 3. 히알앰플 + 쿨링패드 가이드 -->
+  <a href="hyal-cooling/" class="hub-card">
+    <div class="hub-card-thumb">
+      <span class="hub-card-badge">Campaign 03</span>
+      <span class="hub-card-status live">진행중</span>
+      <img src="hyal-cooling/image/제품.PNG" alt="히알앰플 + 쿨링패드">
+    </div>
+    <div class="hub-card-body">
+      <div class="hub-card-eyebrow">New Campaign</div>
+      <div class="hub-card-title">히알앰플 + 쿨링패드</div>
+      <p class="hub-card-desc">
+        히알루로닉 레이어 수딩 앰플과 히알루로닉 카테킨 수딩 패드를 함께 소개하는 캠페인 가이드라인입니다. 수분·진정 루틴과 핵심 성분 가이드를 확인하세요.
+      </p>
+      <div class="hub-card-tags">
+        <span class="hub-card-tag">히알앰플</span>
+        <span class="hub-card-tag">쿨링패드</span>
+      </div>
+      <span class="hub-card-cta">가이드 보기 →</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>it:fu (잇퓨)</strong><br>
+  본 허브는 선별된 크리에이터에게만 제공되는 자료입니다.<br>
+  문의사항이 있으시면 담당자에게 연락해 주세요.
+</div>
+
+<script>
+  (function () {
+    var PASSCODE = '0907';
+    var root = document.documentElement;
+    if (!root.classList.contains('gated')) return;
+
+    var gate = document.getElementById('gate');
+    var form = document.getElementById('gateForm');
+    var input = document.getElementById('gateInput');
+    var error = document.getElementById('gateError');
+
+    input.focus();
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (input.value.trim() === PASSCODE) {
+        try { sessionStorage.setItem('itfu-hub-unlocked', '1'); } catch (err) {}
+        root.classList.remove('gated');
+        gate.remove();
+      } else {
+        error.textContent = '비밀번호가 올바르지 않습니다.';
+        input.value = '';
+        input.focus();
+      }
+    });
+
+    input.addEventListener('input', function () { error.textContent = ''; });
+  })();
+</script>
+</body>
+</html>

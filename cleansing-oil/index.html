@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>it:fu — 인플루언서 가이드라인</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@300;400&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #5BA3C9;
+      --green-light: #7BBCD8;
+      --green-pale: #B8DCF0;
+      --cream: #F5FAFD;
+      --warm-white: #EEF6FB;
+      --text-dark: #1A2A35;
+      --text-mid: #3D6B85;
+      --text-light: #6899B0;
+      --border: #C5E0EF;
+      --tag-bg: #DFF0F9;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    /* BANNER */
+    .banner-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .banner-wrap img {
+      width: 100%;
+      display: block;
+    }
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
+      padding: 0 36px;
+    }
+    .header-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      font-weight: 300;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .header-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      color: #ffffff;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 480px) {
+      .header-title { font-size: 18px; }
+      .banner-overlay { padding: 0 24px; }
+    }
+
+    /* SECTION */
+    .section {
+      padding: 48px 28px;
+      padding-left: max(28px, env(safe-area-inset-left, 28px));
+      padding-right: max(28px, env(safe-area-inset-right, 28px));
+      border-bottom: 1px solid var(--border);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .section:last-child { border-bottom: none; }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--green);
+    }
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    /* ABOUT */
+    .about-lead {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.8;
+    }
+    .brand-img-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+    .brand-img-wrap img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .about-grid { display: grid; gap: 12px; }
+    .about-item {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .about-item-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+    .about-item-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .brand-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: var(--green);
+      color: white;
+      font-size: 12.5px;
+      font-weight: 600;
+      border-radius: 20px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      min-height: 44px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .brand-link-btn:active { opacity: 0.75; }
+
+    /* INFO BOX */
+    .info-box {
+      background: var(--green);
+      color: white;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 12px;
+    }
+    .info-box-title {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--green-pale);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13.5px;
+      margin-bottom: 10px;
+    }
+    .info-row:last-child { margin-bottom: 0; }
+    .info-key {
+      min-width: 70px;
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .info-val { color: white; font-weight: 500; line-height: 1.6; }
+    .info-val strong { color: #C5E8F5; }
+
+    .info-warning {
+      font-size: 12px;
+      color: var(--text-mid);
+      background: #EAF5FB;
+      border: 1px solid #B8D8EC;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+    }
+
+    /* PRODUCT */
+    .product-list { display: grid; gap: 12px; }
+    .product-box {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .product-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+    .product-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 11px 16px;
+      background: var(--tag-bg);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 20px;
+      text-decoration: none;
+      align-self: flex-start;
+      border: 1px solid var(--border);
+      min-height: 44px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .product-link-btn:active { opacity: 0.7; }
+
+    /* MUST / RECOMMEND */
+    .must-list { display: grid; gap: 10px; margin-bottom: 24px; }
+    .must-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .must-icon { font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+    .must-item strong { color: var(--text-dark); }
+
+    /* 핵심정보 카드 */
+    .key-info-box {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-top: 16px;
+      display: grid;
+      gap: 16px;
+    }
+    .key-info-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .key-info-item {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .key-info-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .key-info-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .key-info-desc {
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .key-info-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .key-info-tag {
+      font-size: 11px;
+      background: var(--tag-bg);
+      color: var(--green);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+    .slogan-box {
+      background: var(--green);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 12.5px;
+      color: white;
+      line-height: 1.6;
+    }
+    .slogan-label {
+      font-size: 10px;
+      color: var(--green-pale);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .rec-list {
+      background: #EAF5FB;
+      border: 1px solid #B8D8EC;
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .rec-title { font-size: 12px; font-weight: 700; color: var(--green); margin-bottom: 12px; }
+    .rec-item { font-size: 12.5px; color: var(--text-mid); padding: 5px 0; border-bottom: 1px solid #B8D8EC; line-height: 1.6; }
+    .rec-item:last-child { border-bottom: none; }
+
+    /* HASHTAG */
+    .hashtag-section { margin-top: 20px; }
+    .hashtag-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-mid);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hashtag-label .required { background: var(--green); color: white; font-size: 10px; padding: 2px 7px; border-radius: 10px; }
+    .hashtag-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .hashtag {
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      min-height: 44px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hashtag:active { opacity: 0.6; }
+    .hashtag.req { background: var(--green); color: white; }
+    .hashtag.req::after { content: '⎘'; font-size: 11px; color: rgba(255,255,255,0.5); }
+
+    /* WARNING */
+    .warning-box {
+      background: #EDF6FF;
+      border: 1px solid #90BFDB;
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-size: 12.5px;
+      color: #2A5A75;
+      line-height: 1.7;
+      margin-top: 16px;
+    }
+    .warning-box strong { color: #1A3A4F; }
+
+    /* REFERENCE */
+    .ref-box {
+      display: grid;
+      gap: 10px;
+    }
+    .ref-note { font-size: 11px; color: var(--text-light); margin-bottom: 4px; }
+    .ref-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      text-decoration: none;
+      transition: background 0.15s;
+      min-height: 52px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .ref-link:active { background: var(--tag-bg); }
+    .ref-link-label {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .ref-link-arrow {
+      font-size: 13px;
+      color: var(--green-light);
+    }
+
+    /* APPLY */
+    .apply-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 18px;
+      background: var(--green);
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 14px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      min-height: 56px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: opacity 0.15s;
+    }
+    .apply-btn:active { opacity: 0.75; }
+
+    /* DIVIDER */
+    .divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+    /* COPY TOAST */
+    .copy-toast {
+      position: fixed;
+      bottom: max(32px, env(safe-area-inset-bottom, 32px));
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: rgba(18, 42, 58, 0.9);
+      color: white;
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--green);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 36px 32px;
+      padding-bottom: max(36px, env(safe-area-inset-bottom, 36px));
+      font-size: 11.5px;
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+    }
+    .footer strong { color: rgba(255,255,255,0.85); }
+
+    @media (max-width: 480px) {
+      .section { padding: 36px 20px; }
+      .section-title { font-size: 18px; }
+      .section-label { font-size: 9.5px; }
+      .about-lead { font-size: 13px; }
+      .info-box { padding: 20px; }
+      .info-row { font-size: 13px; }
+      .info-key { min-width: 62px; font-size: 11px; }
+      .product-name { font-size: 14px; }
+      .must-item { font-size: 12.5px; padding: 12px 14px; }
+      .key-info-box { padding: 14px 16px; }
+      .key-info-tag { font-size: 11px; padding: 4px 9px; }
+      .hashtag { font-size: 12px; padding: 10px 12px; }
+      .ref-link-label { font-size: 13px; }
+      .apply-btn { font-size: 14px; }
+      .footer { padding: 28px 20px; font-size: 11px; }
+    }
+
+    @media (max-width: 360px) {
+      .section { padding: 28px 14px; }
+      .section-title { font-size: 17px; }
+      .about-lead { font-size: 12.5px; }
+      .hashtag { font-size: 11.5px; padding: 9px 10px; }
+      .about-item { padding: 14px 16px; }
+      .info-box { padding: 16px; }
+      .must-item { font-size: 12px; padding: 10px 12px; gap: 10px; }
+      .key-info-box { padding: 12px 14px; gap: 12px; }
+      .product-name { font-size: 13.5px; }
+      .apply-btn { font-size: 13.5px; min-height: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner-wrap">
+  <img src="image/배너.PNG" alt="it:fu 배너">
+  <div class="banner-overlay">
+    <div class="header-eyebrow">Influencer Guideline</div>
+    <div class="header-title">잇퓨 가이드라인</div>
+    <div class="header-sub">Repair Cream × Cleansing Oil</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+  <div class="section-label">About Brand</div>
+  <div class="section-title">잇퓨에 대하여</div>
+  <p class="about-lead">
+    국내 스킨케어 브랜드로, "피부 요철 케어"와 저자극 성분 중심의 제품을 메인 콘셉트로 잡고 있어요. 브랜드명은 it + future의 의미를 담고 있으며, 자연 유래 성분과 피부 고민 해결 중심의 포뮬러를 강조하는 브랜드입니다.
+  </p>
+  <div class="brand-img-wrap">
+    <img src="image/제품.PNG" alt="it:fu 제품" loading="lazy">
+  </div>
+  <div class="about-grid">
+    <div class="about-item">
+      <div class="about-item-title">대표 제품</div>
+      <div class="about-item-desc">잇퓨의 대표 제품은 '리페어 테라피 순율 크림'입니다.</div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-title">핵심 성분 및 특징</div>
+      <div class="about-item-desc">율무 추출물을 함유해 피부결·요철·보습 케어에 도움을 주는 제품입니다.</div>
+    </div>
+    <div class="about-item">
+      <div class="about-item-title">브랜드 반응 및 성과</div>
+      <div class="about-item-desc">매끈한 피부 표현과 좁쌀·오돌토돌 개선 무드로 SNS에서 바이럴되었으며, 지그재그 전체 랭킹 1위를 기록했습니다.</div>
+    </div>
+  </div>
+  <a href="https://it-fu.com" target="_blank" class="brand-link-btn">브랜드 바로가기 →</a>
+</div>
+
+<!-- 캠페인 개요 -->
+<div class="section">
+  <div class="section-label">Campaign Info</div>
+  <div class="section-title">캠페인 개요</div>
+  <div class="info-box">
+    <div class="info-box-title">Schedule & Details</div>
+    <div class="info-row">
+      <div class="info-key">형식</div>
+      <div class="info-val">릴스 (Reels)</div>
+    </div>
+    <div class="info-row">
+      <div class="info-key">공동작업자</div>
+      <div class="info-val">필수</div>
+    </div>
+    <div class="info-row">
+      <div class="info-key">2차 활용</div>
+      <div class="info-val">동의</div>
+    </div>
+    <div class="info-row">
+      <div class="info-key">활용기간</div>
+      <div class="info-val">3개월</div>
+    </div>
+  </div>
+  <div class="info-warning">⚠️ 일정 미준수 시 고료 지급이 불가합니다.</div>
+
+  <!-- 제공 제품 -->
+  <div style="font-size:12px;font-weight:700;color:var(--text-mid);margin-bottom:10px;letter-spacing:0.05em;">제공 제품</div>
+  <div class="product-list">
+    <div class="product-box">
+      <div class="product-name">리페어 테라피 순율 크림</div>
+      <a href="https://brand.naver.com/itfu/products/5397124083" target="_blank" class="product-link-btn">제품 상세 보기 →</a>
+    </div>
+    <div class="product-box">
+      <div class="product-name">딥 포어 그레인 클렌징 오일</div>
+      <a href="https://brand.naver.com/itfu/products/13615119822" target="_blank" class="product-link-btn">제품 상세 보기 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- 제작 가이드 -->
+<div class="section">
+  <div class="section-label">Content Guide</div>
+  <div class="section-title">제작 가이드</div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--text-mid);margin-bottom:12px;">✔ 영상 및 캡션 필수 포함</div>
+
+  <div class="must-list">
+    <div class="must-item">
+      <div class="must-icon">🎬</div>
+      <div style="width:100%">
+        <strong>[영상]</strong>
+        <ul style="margin-top:8px;padding-left:18px;display:flex;flex-direction:column;gap:6px;">
+          <li>Before/After 피부결 비교 <strong style="color:var(--green)">(필수)</strong></li>
+          <li>클렌징 오일 시연 → 순율 크림 마무리 <strong>루틴 구성</strong> <span style="color:var(--green);font-weight:700">(권장)</span></li>
+          <li>오일이 물과 만나 밀키하게 유화되는 장면 포함 <span style="color:var(--green);font-weight:700">(권장)</span></li>
+          <li>핵심정보·핵심성분 영상 내 소구</li>
+        </ul>
+        <div class="rec-list" style="margin-top:14px;margin-bottom:16px;">
+          <div class="rec-title">🎯 후킹 포인트 — 이런 고민에 공감하며 시작해보세요</div>
+          <div class="rec-item"><strong style="color:var(--text-dark);">순율 크림</strong> · 좁쌀·요철로 피부결이 안 매끈할 때 / 각질 들떠 메이크업이 밀릴 때 / 속건조한데 무거운 크림은 부담일 때</div>
+          <div class="rec-item"><strong style="color:var(--text-dark);">클렌징 오일</strong> · 블랙헤드가 안 빠지고 모공만 커질 때 / 진한 메이크업이 한 번에 안 지워질 때 / 오일 특유의 미끈한 잔여감이 싫을 때</div>
+        </div>
+        <div class="key-info-box">
+          <div>
+            <div class="key-info-group-title">핵심정보</div>
+            <div class="key-info-item">
+              <div class="key-info-name">리페어 테라피 순율 크림</div>
+              <div class="key-info-desc">거친 피부결·요철을 매끈하게 정돈하는 율무 크림. 공기처럼 가벼운 에어리 핏 제형으로 끈적임 없이 산뜻하게 마무리</div>
+              <div class="key-info-tags">
+                <span class="key-info-tag">요철크림 1위</span>
+                <span class="key-info-tag">율무크림 1위</span>
+                <span class="key-info-tag">약국 입점 더마</span>
+              </div>
+            </div>
+            <div class="key-info-item">
+              <div class="key-info-name">딥 포어 그레인 클렌징 오일</div>
+              <div class="key-info-desc">블랙헤드·피지·노폐물을 한 번에 녹여내는 딥클렌징 오일. 물과 만나면 밀키하게 유화돼 잔여감 없이 산뜻한 마무리</div>
+              <div class="key-info-tags">
+                <span class="key-info-tag">딥클렌징</span>
+                <span class="key-info-tag">블랙헤드 케어</span>
+                <span class="key-info-tag">모공 케어</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="key-info-group-title">핵심성분</div>
+            <div class="key-info-item">
+              <div class="key-info-name">순율 크림</div>
+              <div class="key-info-tags">
+                <span class="key-info-tag">율무</span>
+                <span class="key-info-tag">세라마이드</span>
+                <span class="key-info-tag">편백수</span>
+                <span class="key-info-tag">저분자콜라겐</span>
+                <span class="key-info-tag">나이아신아마이드</span>
+              </div>
+            </div>
+            <div class="key-info-item">
+              <div class="key-info-name">클렌징 오일</div>
+              <div class="key-info-tags">
+                <span class="key-info-tag">5가지 식물성 오일</span>
+                <span class="key-info-tag">병풀(TECA)</span>
+                <span class="key-info-tag">판테놀</span>
+                <span class="key-info-tag">세라마이드</span>
+                <span class="key-info-tag">히알루론산</span>
+              </div>
+            </div>
+          </div>
+          <div class="slogan-box">
+            <div class="slogan-label">Slogan</div>
+            피부 고민과 스킨 솔루션을 잇다, 잇퓨 — YOUR CONCERN, OUR SOLUTION.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="must-item">
+      <div class="must-icon">✍️</div>
+      <div><strong>[캡션]</strong> 핵심정보 및 핵심성분 영상 내 소구 <span style="color:var(--green);font-weight:700">(추천)</span></div>
+    </div>
+    <div class="must-item">
+      <div class="must-icon">🔗</div>
+      <div>
+        <strong>[공동작업자]</strong> 설정 필수<br>
+        <span class="collab-handle" style="display:inline-flex;align-items:center;gap:5px;margin-top:6px;font-size:13px;color:var(--green);font-weight:700;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;padding:4px 0;">@itfu_official ⎘</span><br>
+        <span class="collab-handle" style="display:inline-flex;align-items:center;gap:5px;margin-top:4px;font-size:13px;color:var(--green);font-weight:700;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;padding:4px 0;">@itfu_global ⎘</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="rec-list">
+    <div class="rec-title">추천 사항</div>
+    <div class="rec-item">제품 특징과 실제 사용 후 느낌을 바탕으로 자유롭게 표현해주세요.</div>
+    <div class="rec-item">BGM은 저작권 이슈가 없는 음원을 사용해주세요.</div>
+    <div class="rec-item">과한 보정·상세페이지 캡처·편집 프로그램 워터마크 노출은 지양해주세요.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 해시태그 -->
+  <div class="hashtag-section">
+    <div class="hashtag-label">해시태그 <span class="required">필수</span></div>
+    <div class="hashtag-wrap">
+      <div class="hashtag req">#잇퓨</div>
+      <div class="hashtag req">#잇퓨순율크림</div>
+      <div class="hashtag req">#잇퓨클렌징오일</div>
+      <div class="hashtag req">#요철제로</div>
+      <div class="hashtag req">#요철</div>
+      <div class="hashtag req">#블랙헤드</div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    ⚠️ <strong>업로드 기한을 반드시 준수해주세요.</strong><br><br>
+    공동작업자 설정 및 콘텐츠 2차 활용에 동의하는 것으로 간주됩니다.
+  </div>
+</div>
+
+<!-- 레퍼런스 -->
+<div class="section">
+  <div class="section-label">Reference</div>
+  <div class="section-title">레퍼런스 콘텐츠</div>
+  <div class="ref-note">콘텐츠 제작 참고용 — 탭하여 확인</div>
+  <div class="ref-box">
+    <a href="https://www.instagram.com/reels/DZTcJ3RSk09/" target="_blank" class="ref-link">
+      <span class="ref-link-label">레퍼런스 1</span>
+      <span class="ref-link-arrow">→</span>
+    </a>
+    <a href="https://www.instagram.com/reels/DY425hWyY8B/" target="_blank" class="ref-link">
+      <span class="ref-link-label">레퍼런스 2</span>
+      <span class="ref-link-arrow">→</span>
+    </a>
+    <a href="https://www.instagram.com/reels/DXynMRjxN4m/" target="_blank" class="ref-link">
+      <span class="ref-link-label">레퍼런스 3</span>
+      <span class="ref-link-arrow">→</span>
+    </a>
+    <a href="https://www.instagram.com/reels/DWIJyCsASQh/" target="_blank" class="ref-link">
+      <span class="ref-link-label">레퍼런스 4</span>
+      <span class="ref-link-arrow">→</span>
+    </a>
+    <a href="https://www.instagram.com/reel/DX5ukX9R083/" target="_blank" class="ref-link">
+      <span class="ref-link-label">레퍼런스 5</span>
+      <span class="ref-link-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- 신청하기 -->
+<div class="section">
+  <div class="section-label">Apply</div>
+  <div class="section-title">캠페인 신청하기</div>
+  <p style="font-size:13.5px;color:var(--text-mid);line-height:1.8;margin-bottom:24px;">
+    캠페인 참여를 원하시면 아래 버튼을 눌러 신청서를 작성해 주세요.
+  </p>
+  <a href="https://forms.gle/AjjKmmxpHpwjd3bj6" target="_blank" class="apply-btn">
+    신청서 작성하기 →
+  </a>
+</div>
+
+<!-- 정산 -->
+<div class="section">
+  <div class="section-label">Settlement</div>
+  <div class="section-title">정산 안내</div>
+  <p style="font-size:13.5px;color:var(--text-mid);line-height:1.8;margin-bottom:20px;">
+    캠페인 선정 완료 후 정산을 위한 서류 및 연락처를 누락 없이 제출해 주세요. 확인 후 <strong style="color:var(--text-dark);">매달 5일</strong>에 지급됩니다.
+  </p>
+  <div class="info-box" style="margin-bottom:12px;">
+    <div class="info-box-title">제출 필수 서류</div>
+    <div class="info-row">
+      <div class="info-key">서류</div>
+      <div class="info-val">성함, 연락처, 신분증 사본 (뒷자리 포함), 통장 사본</div>
+    </div>
+    <div class="info-row">
+      <div class="info-key">수신 이메일</div>
+      <div class="info-val"><strong>hwangyksiriai@gmail.com</strong></div>
+    </div>
+    <div class="info-row">
+      <div class="info-key">메일 제목</div>
+      <div class="info-val"><strong>잇퓨_이름_@인스타핸들</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>it:fu (잇퓨)</strong><br>
+  본 가이드라인은 선별된 크리에이터에게만 제공되는 자료입니다.<br>
+  문의사항이 있으시면 담당자에게 연락해 주세요.
+</div>
+
+<div class="copy-toast" id="copyToast"></div>
+
+<script>
+  function showToast(text) {
+    const toast = document.getElementById('copyToast');
+    toast.textContent = '"' + text + '" 복사됨';
+    toast.classList.add('show');
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => toast.classList.remove('show'), 1500);
+  }
+
+  function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => showToast(text));
+  }
+
+  document.querySelectorAll('.hashtag').forEach(el => {
+    el.addEventListener('click', () => {
+      const tag = el.textContent.replace('⎘', '').trim();
+      copyText(tag);
+    });
+  });
+
+  document.querySelectorAll('.collab-handle').forEach(el => {
+    el.addEventListener('click', () => {
+      const handle = el.textContent.replace('⎘', '').trim();
+      copyText(handle);
+    });
+  });
+</script>
+</body>
+</html>
